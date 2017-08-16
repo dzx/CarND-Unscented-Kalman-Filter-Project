@@ -102,6 +102,17 @@ public:
    * @param meas_package The measurement at k+1
    */
   void UpdateRadar(MeasurementPackage meas_package);
+
+private:
+  void Initialize(MeasurementPackage meas_package);
+    
+  double GetNIS(const VectorXd& z, const VectorXd& pred, const MatrixXd& S);
+
+  void RunNisStats(double nis, double target);
+    
+  int estimate_count_;
+    
+  int nis_over_count_;
 };
 
 #endif /* UKF_H */
